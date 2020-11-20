@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.0.3",
+    "@chatscope/chat-ui-kit-styles": "^1.0.4",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
@@ -15,6 +17,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "styled-components": "^5.2.1",
+    "talkjs": "^0.14.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

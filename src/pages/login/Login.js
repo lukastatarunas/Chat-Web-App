@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { login } from '../../redux/login/login.actions';
+import { updateHeader, login } from '../../redux/login/login.actions';
 
-const Login = ({ inputs, login }) => {
+const Login = ({ updateHeader, history, inputs, login }) => {
+  const handleClick = (event) => {
+    event.preventDefault();
+    updateHeader();
+    history.push('/chat');
+  };
   return (
     <div>
       <form>
@@ -18,13 +22,15 @@ const Login = ({ inputs, login }) => {
           name="password"
           type="password"
         />
-        <Link to="/chat">Login</Link>
+        <button onClick={(event) => handleClick(event)}>Login</button>
       </form>
     </div>
   );
 };
 
 Login.propTypes = {
+  updateHeader: PropTypes.func,
+  history: PropTypes.object,
   inputs: PropTypes.object,
   login: PropTypes.func,
 };
@@ -35,6 +41,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   login: (inputs) => dispatch(login(inputs)),
+  updateHeader: () => dispatch(updateHeader()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

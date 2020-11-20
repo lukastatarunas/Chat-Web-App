@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     email: '',
     password: '',
   },
+  updateHeader: false,
 };
 
 const loginReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,11 @@ const loginReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         inputs: action.payload,
+      };
+    case LoginActionTypes.UPDATE_HEADER:
+      return {
+        ...state,
+        updateHeader: !state.updateHeader,
       };
     default:
       return state;

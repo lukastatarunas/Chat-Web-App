@@ -10,10 +10,10 @@ import Header from './components/header/Header';
 
 import './App.css';
 
-const App = ({ inputs }) => {
+const App = ({ updateHeader, inputs }) => {
   return (
     <div className="App">
-      <Header inputs={inputs} />
+      <Header updateHeader={updateHeader} inputs={inputs} />
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/chat" component={Chat} />
@@ -24,10 +24,12 @@ const App = ({ inputs }) => {
 };
 
 App.propTypes = {
+  updateHeader: PropTypes.bool,
   inputs: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
+  updateHeader: state.login.updateHeader,
   inputs: state.login.inputs,
 });
 
